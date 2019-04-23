@@ -13,10 +13,13 @@ public class GameController : MonoBehaviour
     public bool GameOver = false;
     public float ScrollSpeed = -1.5f;
     public Text ScoreText;
+    public int SpeedIncreaseScore = 10;
+    public float SpeedInreaseRatio = 1.1f;
 
     #endregion Components
 
     private int score = 0;
+    private int speedIncreaseCounter = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -40,7 +43,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void BirdDied()
+    public void PlayerDead()
     {
         gameOverText.SetActive(true);
         GameOver = true;
@@ -51,6 +54,12 @@ public class GameController : MonoBehaviour
     {
         if (GameOver) return;
         score++;
+        speedIncreaseCounter++;
         ScoreText.text = $"Score: {score}";
+        if(speedIncreaseCounter >= SpeedIncreaseScore)
+        {
+            ScrollSpeed *= SpeedInreaseRatio;
+            speedIncreaseCounter = 0;
+        }
     }
 }

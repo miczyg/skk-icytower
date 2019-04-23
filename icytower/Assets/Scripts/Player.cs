@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     #region Public
     public float upForce = 200f;
+    [SerializeField] private float sideForce = 100f;
 
     #endregion Public
 
@@ -17,7 +18,7 @@ public class Player : MonoBehaviour
     #region Components
 
     private Rigidbody2D rb2d;
-    private Animator anim;
+    private SpriteRenderer spriteRenderer;
 
     #endregion Components
 
@@ -26,29 +27,43 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!isDead)
         {
-            if (Input.GetKeyDown(KeyNames.Space))
+            if (Input.GetKeyUp(KeyNames.Space))
             {
                 rb2d.velocity = Vector2.zero;
                 rb2d.AddForce(new Vector2(0, upForce));
-                anim.SetTrigger(Animations.Flap);
+                //anim.SetTrigger(Animations.Flap);
             }
+
+            var moveX = Input.GetAxis("Horizontal");
+            rb2d.AddForce(new Vector2(moveX * sideForce, 0));
+
+            FlipSprite(moveX);
+
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // If the bird collides with something set it to dead...
-        if (collision.GetComponent<Column>()) return;
+        //if (collision.GetComponent<ScrollingObject>()) return;
         isDead = true;
-        anim.SetTrigger(Animations.Die);
-        GameController.Instance.BirdDied();
+        //anim.SetTrigger(Animations.Die);
+        GameController.Instance.PlayerDead();
+    }
+
+    private void FlipSprite(float moveX)
+    {
+        bool flipSprite = (spriteRenderer.flipX ? (moveX > 0.01f) : (moveX < 0.01f));
+        if (flipSprite)
+        {
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+        }
     }
 }

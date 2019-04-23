@@ -1,23 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RepeatingBackground : MonoBehaviour
 {
     private BoxCollider2D groudCollider;
-    private float groundHLength;
+    private float groundVLen;
 
     // Start is called before the first frame update
     void Start()
     {
         groudCollider = GetComponent<BoxCollider2D>();
-        groundHLength = groudCollider.size.x;
+        groundVLen = groudCollider.size.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.x < -groundHLength)
+        if(transform.position.y < -groundVLen)
         {
             RepositionBackground();
         }
@@ -25,7 +23,7 @@ public class RepeatingBackground : MonoBehaviour
 
     private void RepositionBackground()
     {
-        var groundOffset = new Vector2(groundHLength * 2f, 0);
+        var groundOffset = new Vector2(0, groundVLen * 2f - 1);
         transform.position = (Vector2)transform.position + groundOffset;
     }
 }
