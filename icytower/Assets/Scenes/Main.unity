@@ -1257,7 +1257,7 @@ MonoBehaviour:
   gameOverText: {fileID: 151969945}
   ScoreText: {fileID: 266357691}
   SpeedIncreaseScore: 10
-  SpeedInreaseRatio: 1.1
+  SpeedInreaseRatio: 1.5
 --- !u!4 &1004386104
 Transform:
   m_ObjectHideFlags: 0
@@ -1291,7 +1291,7 @@ MonoBehaviour:
   platformXMin: -8
   platformXMax: 8
   platformYMin: 7
-  platformYMax: 9
+  platformYMax: 11
   scaleMin: 0.8
   scaleMax: 1.2
 --- !u!1 &1100492787
@@ -2248,8 +2248,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minGroundNormalY: 0.65
   gravityModifier: 1
-  maxSpeed: 15
-  jumpTakeOffSpeed: 15
+  maxSpeed: 18
+  jumpTakeOffSpeed: 18
 --- !u!1 &2125104670
 GameObject:
   m_ObjectHideFlags: 0
