@@ -1252,9 +1252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c3bfc0b0c0fa34e8e2cb30d23ae734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverText: {fileID: 151969945}
   GameOver: 0
   ScrollSpeed: -1.5
+  gameOverText: {fileID: 151969945}
   ScoreText: {fileID: 266357691}
   SpeedIncreaseScore: 10
   SpeedInreaseRatio: 1.1
@@ -1292,6 +1292,8 @@ MonoBehaviour:
   platformXMax: 8
   platformYMin: 7
   platformYMax: 9
+  scaleMin: 0.8
+  scaleMax: 1.2
 --- !u!1 &1100492787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,8 +2116,8 @@ GameObject:
   - component: {fileID: 2034139355}
   - component: {fileID: 2034139354}
   - component: {fileID: 2034139356}
-  - component: {fileID: 2034139358}
   - component: {fileID: 2034139357}
+  - component: {fileID: 2034139358}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -2241,7 +2243,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2034139353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 305343e816ae1c5478452ab91ff54f8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b50a386f4111cc48aabdc39184dfb25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minGroundNormalY: 0.65

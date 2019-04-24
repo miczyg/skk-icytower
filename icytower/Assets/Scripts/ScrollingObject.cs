@@ -24,5 +24,8 @@ public class ScrollingObject : MonoBehaviour
         {
             rb2d.velocity = Vector2.zero;
         }
+        rb2d.velocity = new Vector2(0, GameController.Instance.ScrollSpeed);
     }
+
+
 }

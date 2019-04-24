@@ -44,7 +44,7 @@ public class PlatformPool : MonoBehaviour
         if (!GameController.Instance.GameOver && timeSinceLastSpawn >= SpawnRate)
         {
             timeSinceLastSpawn = 0;
-            var spawnXPos = Random.Range(platformXMin, platformXMax);
+            var spawnXPos = Random.Range(platformXMin, platformXMax) / GameController.Instance.ScrollSpeed;
             var spawnYPos = Random.Range(platformYMin, platformYMax);
             var scale = Random.Range(scaleMin, scaleMax);
 
