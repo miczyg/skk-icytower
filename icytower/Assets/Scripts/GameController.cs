@@ -7,19 +7,24 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance;
 
-    #region Components
+    #region Serialized
 
-    public GameObject gameOverText;
-    public bool GameOver = false;
-    public float ScrollSpeed = -1.5f;
-    public Text ScoreText;
-    public int SpeedIncreaseScore = 10;
-    public float SpeedInreaseRatio = 1.1f;
+    #region Public
+    [SerializeField] public bool GameOver = false;
+    [SerializeField] public float ScrollSpeed = -1.5f;
+    #endregion Public
 
-    #endregion Components
+    [SerializeField] private GameObject gameOverText;
+    [SerializeField] private Text ScoreText;
+    [SerializeField] private int SpeedIncreaseScore = 10;
+    [SerializeField] private float SpeedInreaseRatio = 1.1f;
 
+    #endregion Serialized
+
+    #region Componenents
     private int score = 0;
     private int speedIncreaseCounter = 0;
+    #endregion Components
 
     // Start is called before the first frame update
     void Awake()

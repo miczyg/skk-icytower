@@ -5,22 +5,24 @@ using UnityEngine;
 
 public class PlatformPool : MonoBehaviour
 {
-    public int platformPoolSize;
-    public GameObject platformPrefab;
-    public float SpawnRate = 4f;
-    public float platformXMin = -5f;
-    public float platformXMax = 5f;
-    public float platformYMin = 5f;
-    public float platformYMax = 7f;
-    //public float spawnYPos = 5;
+    #region Serialized
+    [SerializeField] private int platformPoolSize;
+    [SerializeField] private GameObject platformPrefab;
+    [SerializeField] private float SpawnRate = 4f;
+    [SerializeField] private float platformXMin = -5f;
+    [SerializeField] private float platformXMax = 5f;
+    [SerializeField] private float platformYMin = 5f;
+    [SerializeField] private float platformYMax = 7f;
+    [SerializeField] private float scaleMin = 0.8f;
+    [SerializeField] private float scaleMax = 1.2f;
+    #endregion Serialized
 
-
+    #region Components
     private GameObject[] platforms;
     private Vector2 poolPosition = new Vector2(-15f, -25f);
     private float timeSinceLastSpawn;
     private int currentPlatform;
-    private float scaleMin = 0.8f;
-    private float scaleMax = 1.2f;
+    #endregion Components
 
     // Start is called before the first frame update
     void Start()

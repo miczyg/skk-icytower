@@ -2,8 +2,10 @@
 
 public class RepeatingBackground : MonoBehaviour
 {
+    #region Components
     private BoxCollider2D groudCollider;
     private float groundVLen;
+    #endregion Components
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +23,11 @@ public class RepeatingBackground : MonoBehaviour
         }
     }
 
+    #region Privates
     private void RepositionBackground()
     {
         var groundOffset = new Vector2(0, groundVLen * 2f - 1);
         transform.position = (Vector2)transform.position + groundOffset;
     }
+    #endregion Privates
 }

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ScrollingObject : MonoBehaviour
 {
- 
-   private Rigidbody2D rb2d;
+
+    #region Components
+    private Rigidbody2D rb2d;
+    #endregion Components
 
     // Start is called before the first frame update
     void Start()
